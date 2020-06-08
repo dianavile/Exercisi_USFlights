@@ -1,0 +1,2 @@
+# Exercisi_USFlights
+QueriesSQL
