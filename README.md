@@ -37,5 +37,8 @@ ONT, 2000, 02, 3
 - 7. Companyies amb el seu retard promig només d’aquelles les quals els seus vols arriben al seu destí amb un retràs promig major de 10 minuts.
 
 
+### Recoursos
+[Flight DATA](http://stat-computing.org/dataexpo/2009/the-data.html)
+[STATISTICAL COMPUTING](http://stat-computing.org/)
 
 
