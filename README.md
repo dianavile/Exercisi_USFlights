@@ -25,7 +25,7 @@ Any other way will not work for important data are missing in flight table and c
 b. During the data import from flights table, are the fields in the csv file from which they are imported well correlated with the fields in the table? Why do you think this is?
 
 No, the datafields in the .csv file do NOT well correlate with the datafield in the table(db). As you can observe in the data [Flight DATA](http://stat-computing.org/dataexpo/2009/the-data.html), the last 5 columns are missing. And in the datatable "flights" the column 
-"flightID" is missing.
+"flightID" is missing. 
 
 To solve this:
 - Create a first column "flightID" with PRIMARY KEY AUTOINCREMENT. After this you can import table.
@@ -104,14 +104,27 @@ ANSWER: lo mismo cómo el ejercicio.
 
 /* SQL CONSULTA 6: L’identificador dels 10 avions que més distància han recorregut fent vols.*/
 ```
-
+SELECT `TailNum`, SUM(`Distance`) AS "total_distance" 
+FROM `flights` 
+WHERE `TailNum` <> "" 
+GROUP BY `TailNum` 
+ORDER BY `total_distance` DESC
+LIMIT 10;
 ```
+ANSWER: lo mismo cómo el ejercicio.
 
 /* SQL CONSULTA 7: Companyies amb el seu retard promig només d’aquelles les quals els seus vols arriben al seu destí amb un retràs promig major de 10 minuts.*/
 ```
-
+SELECT `UniqueCarrier`, AVG(`ArrDelay`) AS "avg_delay" 
+FROM `flights` GROUP 
+BY `UniqueCarrier` 
+HAVING AVG(`ArrDelay`) > 10 ORDER 
+BY `avg_delay` DESC
+```
+ANSWER: No cuadra. probablemente, porque en este SQL query 10 minutos de retraso no esta incluido. tiene que ser un retraso promedio de MAS de 10 minutos. Yo hizo de 10 minutos.
 ```
 
+```
 ### Recursos
 - [SQLBolt-Introduction to SQL](https://sqlbolt.com/)
 - [SQL basics](https://www.w3schools.com/sql/sql_create_db.asp)
