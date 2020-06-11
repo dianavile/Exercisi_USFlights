@@ -83,8 +83,14 @@ ANSWER: lo mismo cómo el ejercicio.
 
 /* SQL CONSULTA 4: Retard promig d’arribada dels vols, per mesos, anys i segons l’aeroport origen (mateixa consulta que abans  i amb el mateix ordre). Però a més, ara volen que en comptes del codi de l’aeroport es mostri el nom de la ciutat.*/
 ```
-
+SELECT `city`,`colYear`,`colMonth`, 
+AVG(`ArrDelay`) AS "prom_arribades" 
+FROM `flights`, `usairports` 
+WHERE Origin = iata 
+GROUP BY city, colYear, colMonth;
 ```
+ANSWER: lo mismo cómo el ejercicio.
+
 /* SQL CONSULTA 5: Les companyies amb més vols cancelats, per mesos i any. A més, han d’estar ordenades de forma que les companyies amb més cancel·lacions apareguin les primeres. */
 ```
 
