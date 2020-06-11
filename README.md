@@ -123,7 +123,6 @@ ORDER BY `avg_delay` DESC;
 ```
 ANSWER: No cuadra. probablemente, porque en este SQL query 10 minutos de retraso no esta incluido. 
 Tiene que ser un retraso promedio de MAS de 10 minutos. Yo hizo de 10 minutos. 
-He probado 2 variantes (SQL CONSULTA 7-1 y SQL CONSULTA 7-2), pero sigo teniendo un error en dos columnas. 
 
 SQL CONSULTA 7-1
 ```
@@ -144,7 +143,9 @@ HAVING AVG(`ArrDelay`) > 10
 ORDER BY `avg_delay` DESC 
 LIMIT 10;
 ```
-
+ANSWER: Todavia no cuadra. He probado 2 variantes (SQL CONSULTA 7-1 y SQL CONSULTA 7-2), pero sigo teniendo un error en dos columnas. 
+Adjunto imagen.
+![SQL CONSULTA 7]()
 
 ### Recursos
 - [SQLBolt-Introduction to SQL](https://sqlbolt.com/)
