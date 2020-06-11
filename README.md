@@ -20,11 +20,11 @@ XAMPP (Apache), PhpMyAdmin (DB,SQL queries,.CSV)
 a. In what order should the data be imported?
 
 The data should be imported in the following way: carriers.csv, airports.csv, flights.csv
-Any other way will not work for important data are missing.
+Any other way will not work for important data are missing in flight table and connections between .csv files. First you need to add the connections between the datatables in the different files (index, add Primary Key, add Foreign Key) and add the missing colums in flightdb.
 
 b. During the data import from flights table, are the fields in the csv file from which they are imported well correlated with the fields in the table? Why do you think this is?
 
-No, the datafields in the .csv file do not well correlate with the datafield in the table(db). As you can observe in the data [Flight DATA](http://stat-computing.org/dataexpo/2009/the-data.html), the last 5 columns are missing. And in the datatable "flights" the column 
+No, the datafields in the .csv file do NOT well correlate with the datafield in the table(db). As you can observe in the data [Flight DATA](http://stat-computing.org/dataexpo/2009/the-data.html), the last 5 columns are missing. And in the datatable "flights" the column 
 "flightID" is missing.
 
 To solve this:
@@ -36,11 +36,19 @@ To solve this:
 
 /* SQL CONSULTA 1: Quantitat de registres de la taula de vols */
 ```
-SELECT count(*) FROM `flights`
+SELECT * FROM `flights`
 ```
+REFLECTION:
+- The first SQL query leads to 361 flights. It seems in the flightdb many flights are missing.
+
+
 /* SQL CONSULTA 2:  Retard promig de sortida i arribada segons l’aeroport origen. */
 ```
-
+SELECT `Origin` AS "Origen", 
+AVG(`ArrDelay`) AS "prom_arribades", 
+AVG(`DepDelay`) AS "prom_sortides" 
+FROM `flights` 
+GROUP BY Origin
 ```
 /* SQL CONSULTA 3: Retard promig d’arribada dels vols, per mesos, anys i segons l’aeroport origen. A més, volen que els
 resultat es mostrin de la següent forma (fixa’t en l’ordre de les files): */
