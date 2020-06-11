@@ -118,13 +118,34 @@ ANSWER: lo mismo cómo el ejercicio.
 SELECT `UniqueCarrier`, AVG(`ArrDelay`) AS "avg_delay" 
 FROM `flights` GROUP 
 BY `UniqueCarrier` 
-HAVING AVG(`ArrDelay`) > 10 ORDER 
-BY `avg_delay` DESC
+HAVING AVG(`ArrDelay`) > 10 
+ORDER BY `avg_delay` DESC;
 ```
-ANSWER: No cuadra. probablemente, porque en este SQL query 10 minutos de retraso no esta incluido. tiene que ser un retraso promedio de MAS de 10 minutos. Yo hizo de 10 minutos.
+ANSWER: No cuadra. probablemente, porque en este SQL query 10 minutos de retraso no esta incluido. 
+Tiene que ser un retraso promedio de MAS de 10 minutos. Yo hizo de 10 minutos. 
+He probado 2 variantes (SQL CONSULTA 7-1 y SQL CONSULTA 7-2), pero sigo teniendo un error en dos columnas. 
+
+SQL CONSULTA 7-1
+```
+SELECT `UniqueCarrier`, AVG(`ArrDelay`) 
+AS "avg_delay" 
+FROM `flights` 
+GROUP BY `UniqueCarrier` 
+HAVING AVG(`ArrDelay`) > 11
+ORDER BY `avg_delay` DESC; 
+```
+SQL CONSULTA 7-2
+```
+SELECT `UniqueCarrier`, AVG(`ArrDelay`) 
+AS "avg_delay" 
+FROM `flights` 
+GROUP BY `UniqueCarrier` 
+HAVING AVG(`ArrDelay`) > 10 
+ORDER BY `avg_delay` DESC 
+LIMIT 10;
 ```
 
-```
+
 ### Recursos
 - [SQLBolt-Introduction to SQL](https://sqlbolt.com/)
 - [SQL basics](https://www.w3schools.com/sql/sql_create_db.asp)
