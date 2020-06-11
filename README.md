@@ -93,8 +93,14 @@ ANSWER: lo mismo cómo el ejercicio.
 
 /* SQL CONSULTA 5: Les companyies amb més vols cancelats, per mesos i any. A més, han d’estar ordenades de forma que les companyies amb més cancel·lacions apareguin les primeres. */
 ```
-
+SELECT `UniqueCarrier`, `colYear`, `colMonth`, 
+SUM(`Cancelled`) AS "total_cancelled" 
+FROM `flights` 
+GROUP BY `colYear`, `colMonth`, `UniqueCarrier` 
+HAVING SUM(`Cancelled`) > 0
+ORDER BY `total_cancelled` DESC
 ```
+ANSWER: lo mismo cómo el ejercicio.
 
 /* SQL CONSULTA 6: L’identificador dels 10 avions que més distància han recorregut fent vols.*/
 ```
