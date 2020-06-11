@@ -36,10 +36,17 @@ To solve this:
 
 /* SQL CONSULTA 1: Quantitat de registres de la taula de vols */
 ```
-SELECT * FROM `flights`
+SELECT COUNT(*) FROM `flights`
 ```
+ANSWER: 
+COUNT(*)
+4758
+
 REFLECTION:
 - The first SQL query leads to 361 flights. It seems in the flightdb many flights are missing.
+- It is solved now. I did not import the flights db correctly. 
+To solve: I emptied the flights table with TRUNCATE and imported flights.csv anew. This time with the correct "Format-specific options.
+![]()
 
 
 /* SQL CONSULTA 2:  Retard promig de sortida i arribada segons l’aeroport origen. */
@@ -50,6 +57,11 @@ AVG(`DepDelay`) AS "prom_sortides"
 FROM `flights` 
 GROUP BY Origin
 ```
+ANSWER: 
+COUNT(*)
+4758
+
+
 /* SQL CONSULTA 3: Retard promig d’arribada dels vols, per mesos, anys i segons l’aeroport origen. A més, volen que els
 resultat es mostrin de la següent forma (fixa’t en l’ordre de les files): */
 ```
