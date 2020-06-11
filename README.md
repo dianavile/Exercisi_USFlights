@@ -2,7 +2,7 @@
 QueriesSQL
 
 ## tools used:
-XAMPP (Apache), PhpMyAdmin (DB,SQL queries,.CSV)
+[XAMPP](https://www.apachefriends.org/es/index.html)(Apache, PhpMyAdmin) with DB files in .sql and imported data from .csv. 
 
 ### Installation:
 - Install Xampp (for Windows)
@@ -145,7 +145,7 @@ LIMIT 10;
 ```
 ANSWER: Todavia no cuadra. He probado 2 variantes (SQL CONSULTA 7-1 y SQL CONSULTA 7-2), pero sigo teniendo un error en dos columnas. 
 Adjunto imagen.
-![SQL CONSULTA 7]()
+![SQL CONSULTA 7](https://github.com/dianavile/Exercisi_USFlights/blob/master/SQL%20query7-2ndIntent.PNG)
 
 ### Recursos
 - [SQLBolt-Introduction to SQL](https://sqlbolt.com/)
