@@ -52,7 +52,6 @@ GROUP BY Origin
 ```
 /* SQL CONSULTA 3: Retard promig d’arribada dels vols, per mesos, anys i segons l’aeroport origen. A més, volen que els
 resultat es mostrin de la següent forma (fixa’t en l’ordre de les files): */
-
 ```
 LAX, 2000, 01, 10
 LAX, 2000, 02, 30
@@ -64,6 +63,12 @@ LAX, 2001, 01, 5
 LAX, 2001, 12, 4
 ONT, 2000, 01, 6
 ONT, 2000, 02, 3
+```
+```
+SELECT `Origin`,`colYear`,`colMonth`, 
+AVG(`ArrDelay`) AS "prom_arribades" 
+FROM `flights` 
+GROUP BY Origin, colYear, colMonth
 ```
 
 /* SQL CONSULTA 4: Retard promig d’arribada dels vols, per mesos, anys i segons l’aeroport origen (mateixa consulta que abans  i amb el mateix ordre). Però a més, ara volen que en comptes del codi de l’aeroport es mostri el nom de la ciutat.*/
