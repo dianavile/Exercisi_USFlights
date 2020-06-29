@@ -147,6 +147,47 @@ ANSWER: Todavia no cuadra. He probado 2 variantes (SQL CONSULTA 7-1 y SQL CONSUL
 Adjunto imagen.
 ![SQL CONSULTA 7](https://github.com/dianavile/Exercisi_USFlights/blob/master/SQL%20query7-2ndIntent.PNG)
 
+
+## correction USFLIGHT:
+/* SQL CONSULTA 1+2: .*/
+- Consulta 1 i 2, perfecte
+
+/* SQL CONSULTA 3: .*/
+- Consulta 3: Faltaria definir ordre: ORDER BY Origin, colYear, colMonth;
+
+/* SQL CONSULTA 4: .*/
+- Cuando consultas campos del mismo nombre en tablas diferentes, deberías utilizar un identificativo. Mira este ejemplo, que además utiliza el Left JOIN:
+
+```SELECT AIRP.City, FL.colYear, FL.colMonth, AVG(FL.ArrDelay) 
+FROM Flights as FL 
+LEFT JOIN USAirports as AIRP  
+ON FL.Origin = AIRP.IATA 
+GROUP BY City, colYear, colMonth  
+ORDER BY City, colYear, colMonth; (no és obligatori ordenar)
+```
+
+/* SQL CONSULTA 5: .*/
+Cuando especificas SUM (‘Cancelled’) as ‘identificador’, ese identificador ya lo puedes utilizar en el Having sum, no tiene sentido que lo vuelvas a crear:
+```HAVING total_cancelacions > 0```
+
+/* SQL CONSULTA 6: .*/
+- Perfect!
+
+/* SQL CONSULTA 7: .*/
+Lo mismo que la consulta 5 ->
+```HAVING AVG(`ArrDelay`) > 10```
+- lo correcto sería HAVING avg_delay > 10
+Esta sería la consulta completa:
+```
+SELECT UniqueCarrier, avg(ArrDelay) as avgDelay 
+	FROM Flights 
+	GROUP BY UniqueCarrier 
+	HAVING avgDelay > 10.0 
+	ORDER BY avgDelay DESC;``
+   
+
+
+
 ### Recursos
 - [SQLBolt-Introduction to SQL](https://sqlbolt.com/)
 - [SQL basics](https://www.w3schools.com/sql/sql_create_db.asp)
